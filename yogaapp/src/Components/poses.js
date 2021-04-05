@@ -1,6 +1,6 @@
 var poses = 
 [
-     { "file_reference": 'bird_of_paradise_revolved.html',
+     { file_reference: 'bird_of_paradise_revolved.html',
     pose_name: 'Revolved Bird of Paradise Pose',
     sanskrit_name: 'Parivṛtta Svarga Dvijāsana',
     translation:

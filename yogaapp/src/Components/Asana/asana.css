@@ -1,18 +1,41 @@
 .container {
     border: solid 1px black;
-    height: 12rem;
-    width:  6rem; 
-    margin: 5px;
+    border-radius: 4px;
+    height: max-content;
+    width:  30wh; 
+    margin: 7px;
+    padding: 7px;
+    /* overflow-y: scroll; 
+    overflow-x: scroll;  */
+}
+ 
+.info {
+    margin: 7px;
+} 
+
+.asana-img {
+    height: 15vh;
     padding: 5px;
-    overflow-y: scroll;
+    margin: 7px;
+    float: right;
 }
-
-img {
-    height: 25%;
+.sanskrit {
+    font-style: italic;
 }
-
-.name {
-    font: 10px;
+.title {
+    font: 12px;
     text-align: left;
-    line-height: 12px;
+    line-height: 14px;
+     margin: 5px;
+    font-weight: 500;
+}
+.level {
+    font-weight: 400;
+}
+.descr {
+    margin-left: 5px;
+    font: 10px;
+    
+    
+
 }
