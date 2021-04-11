@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./asana.css";
+// import "./asana.css";
 
-const Asana = (props) => {
-  console.log(props);
+const AsanaInfo = (props) => {
+ 
+  const asanaId = Number(props.match.params.id);
+  console.log(asanaId, typeof asanaId);
   return (
     
     <div className="container">
@@ -12,12 +14,12 @@ const Asana = (props) => {
       <div className="title">{props.eng_name}</div>
         <div className="title sanskrit">{props.name}</div>
         <div className="descr level">{props.difficulty}</div>
-        {/* <div className="descr">{props.benefits}</div> */}
+        <div className="descr">{props.benefits}</div>
         </div>
     
-      <Link to={`/asanas/${props.id}`}>
+      <Link to={`/asanas/`}>
         <button className="descr" >
-          See More</button>
+          Back</button>
       </Link>
       
 
@@ -30,4 +32,4 @@ const Asana = (props) => {
   );
 };
 
-export default Asana;
+export default AsanaInfo;

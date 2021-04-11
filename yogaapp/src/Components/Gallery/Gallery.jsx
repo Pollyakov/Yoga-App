@@ -3,6 +3,7 @@ import axios from "axios";
 import default_img from "./default_img.png";
 import "./gallery.css";
 import Asana from "../Asana/Asana";
+import AsanaInfo from "../AsanaInfo/AsanaInfo";
 import poses from "../poses.js";
 
 const Gallery = () => {
@@ -29,9 +30,11 @@ const Gallery = () => {
             category: pose.category,
             difficulty: pose.difficulty,
             benefits: pose.benefits,
+            id: i,
           };
         });
-
+        
+        
         const findIcon = (index) => {
           let img_url = " ";
           for (let j = 0; j < icons.length; j++) {
@@ -46,9 +49,10 @@ const Gallery = () => {
           return img_url;
         };
         const fullInfo = posesNormalized.map((pose, i) => {
-          return { ...pose, img_url: findIcon(i) };
+          return { ...pose, img_url: findIcon(i), id: i };
         });
         setData(fullInfo);
+        console.log(data);
       } catch (error) {
         setError(true);
         console.log(error);
@@ -59,6 +63,7 @@ const Gallery = () => {
   }, []);
 
   const renderedAsanot = data.map((asana) => {
+    console.log(asana.id);
     return (
       <Asana
         key={asana.id}
@@ -69,11 +74,20 @@ const Gallery = () => {
         description={asana.description}
         difficulty={asana.difficulty}
         benefits={asana.benefits}
+        id={asana.id}
+        
+        
       />
     );
   });
 
-  return <div className="gallery">{renderedAsanot}</div>;
+  return <div >
+     <h1>The Asanas matched your search: </h1>
+     <br/>
+     <div className="gallery">
+    {renderedAsanot}
+    </div>
+    </div>
 };
 
 export default Gallery;
