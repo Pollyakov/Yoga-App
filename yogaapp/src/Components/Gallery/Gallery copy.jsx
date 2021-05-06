@@ -1,21 +1,21 @@
-import "./App.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import default_img from "../src/Components/Gallery/Gallery";
-import AsanaInfo from "./Components/AsanaInfo/AsanaInfo";
-import poses from "./Components/poses";
-import Gallery from "./Components/Gallery/Gallery";
-import LandingPage from "./Pages/LandingPage";
-import NotFound from "./Pages/NotFound";
-import NavBar from "./Components/NavBar/NavBar";
-import About from "./Components/About/About";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import default_img from "./default_img.png";
+import "./gallery.css";
+import Asana from "../Asana/Asana";
+import AsanaInfo from "../AsanaInfo/AsanaInfo";
+import poses from "../poses.js";
 
-function App() {
+const Gallery = () => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setError] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      setError(false);
+      setIsLoading(true);
+      try {
         const data = await axios.get(
           `https://raw.githubusercontent.com/rebeccaestes/yoga_api/master/yoga_api.json`
         );
@@ -34,6 +34,7 @@ function App() {
           };
         });
         
+        
         const findIcon = (index) => {
           let img_url = " ";
           for (let j = 0; j < icons.length; j++) {
@@ -47,45 +48,46 @@ function App() {
           img_url = default_img;
           return img_url;
         };
-
         const fullInfo = posesNormalized.map((pose, i) => {
           return { ...pose, img_url: findIcon(i), id: i };
         });
-        console.log(fullInfo);
         setData(fullInfo);
+        console.log(data);
+      } catch (error) {
+        setError(true);
+        console.log(error);
       }
+      setIsLoading(false);
+    };
     fetchData();
-    
   }, []);
 
+  const renderedAsanot = props.dataFromState.map((asana) => {
+    console.log(asana.id);
+    return (
+      <Asana
+        key={asana.id}
+        img_src={asana.img_url}
+        name={asana.sanskrit_name}
+        eng_name={asana.pose_name}
+        category={asana.category}
+        description={asana.description}
+        difficulty={asana.difficulty}
+        benefits={asana.benefits}
+        id={asana.id}
+        
+        
+      />
+    );
+  });
 
-
-  return (
-    <div>
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route path="/" exact component={LandingPage} />
-          {/* <Route exact path="/asanas" component={Gallery} /> */}
-          <Route
-                exact path="/asanas"
-                render={(props) => (
-                  <Gallery {...props} dataFromState = {data}  />
-                  )}
-            />
-          {/* <Route exact path="/asanas/:id" component={Asana} /> */}
-          <Route
-                 exact path="/asanas/:id" 
-                 render={(props) => (
-                   <AsanaInfo {...props} id={props.id}  />
-                 )}
-           />
-          <Route path="/about" component={About} />
-          <Route component={NotFound} />
-        </Switch>
-      </Router>
+  return <div >
+     <h1>The Asanas matched your search: </h1>
+     <br/>
+     <div className="gallery">
+    {renderedAsanot}
     </div>
-  );
-}
+    </div>
+};
 
-export default App;
+export default Gallery;
