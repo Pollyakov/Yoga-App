@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 const Asana = mongoose.model("Asana", {
-  name: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+ 
   photo: {
     type: String,
     unique: true,
@@ -13,6 +9,16 @@ const Asana = mongoose.model("Asana", {
     type: String,
     unique: true,
   },
+  title: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  directSrc: {
+    type: String,
+    unique: true,
+  },
+
 });
 
 module.exports = Asana;
