@@ -21,7 +21,11 @@ router
   .delete("/", (req, res) => {
     //delete all sequences
     sequenceController.deleteSequence(req, res);
-  });
+  })
+  .patch('/:id', async (req, res) => {
+    // update
+    sequenceController.updateSequence(req, res);
+    })
 
 
 module.exports = router;
