@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const asanaController  = require("../controllers/asana.controller");
+const sequenceController  = require("../controllers/sequence.controller");
 
-//get all asanas
+//get all sequences
 router
   .get("/", (req, res) => {
     //get all asanas
