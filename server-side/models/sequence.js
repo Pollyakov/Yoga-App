@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const  Sequence = mongoose.model("Sequience", {
+const  Sequence = mongoose.model("Sequence", {
   name: {
     type: String,
     required: true,
@@ -9,15 +9,15 @@ const  Sequence = mongoose.model("Sequience", {
     type: String,
     unique: false,
   },
-  asanas: {
-      type: Array,
-      require: true,
-      validate(value) {
-          if (value.length < 5) {
-              throw new Error ("Must contain at least five asanas");
-          }
-      },
-  },
+  // asanas: {
+  //     type: Array,
+  //     require: true,
+  //     validate(value) {
+  //         if (value.length < 5) {
+  //             throw new Error ("Must contain at least five asanas");
+  //         }
+  //     },
+  // },
   date: {
     type: Date,
     unique: false,

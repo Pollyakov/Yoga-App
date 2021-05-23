@@ -5,14 +5,23 @@ const sequenceController  = require("../controllers/sequence.controller");
 //get all sequences
 router
   .get("/", (req, res) => {
-    //get all asanas
-    asanaController.getAsanas(req, res);
+    sequenceController.getSequences(req, res);
   })
   .get("/:id", (req,res)=> {
-    //get specific asana
-    asanaController.getAsana(req, res);
-
+    //get specific sequence
+    sequenceController.getSequence(req, res);
   })
+  .post('/', (req, res) => {
+    sequenceController.createSequence(req, res);
+   })
+   .delete("/:id", (req, res) => {
+    //delete sequence
+    sequenceController.deleteSequence(req, res);
+  })
+  .delete("/", (req, res) => {
+    //delete all sequences
+    sequenceController.deleteSequence(req, res);
+  });
 
 
 module.exports = router;

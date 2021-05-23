@@ -11,7 +11,6 @@ router
   .get("/:id", (req,res)=> {
     //get specific asana
     asanaController.getAsana(req, res);
-
   })
 
 
