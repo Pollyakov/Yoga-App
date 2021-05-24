@@ -14,14 +14,15 @@ router
   .post('/', (req, res) => {
     sequenceController.createSequence(req, res);
    })
+   .delete("/", (req, res) => {
+    //delete all sequences
+    sequenceController.deleteSequences(req, res);
+  })
    .delete("/:id", (req, res) => {
     //delete sequence
     sequenceController.deleteSequence(req, res);
   })
-  .delete("/", (req, res) => {
-    //delete all sequences
-    sequenceController.deleteSequence(req, res);
-  })
+ 
   .patch('/:id', async (req, res) => {
     // update
     sequenceController.updateSequence(req, res);

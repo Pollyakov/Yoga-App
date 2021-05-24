@@ -22,3 +22,25 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`listening to port ${PORT}`);
 });
+//fetching asanas details per sequence id
+const Sequence = require('./models/sequence')
+
+const main = async () => {
+   const sequence = await Sequence.findById('60abf84d3e20ae54d0d840cd')
+   await sequence.populate('asanas').execPopulate()
+   console.log(sequence.asanas[0].title)  //Tadhasana 
+}
+main()
+
+////fetching sequence details from asanas ID
+const Asana = require('./models/asana')
+const mainB = async () => {
+  //  const sequence = await Sequence.findById('60abf84d3e20ae54d0d840cd')
+  //  await sequence.populate('asanas').execPopulate()
+  //  console.log(sequence.asanas[0].title)  //Tadhasana
+  const asana = await Asana.findById('60a52c1513a4df2aec7bfe2d')
+  //dfg
+  await asana.populate("sequences").execPopulate()
+  console.log("asana.sequences",asana.sequences);
+}
+mainB()

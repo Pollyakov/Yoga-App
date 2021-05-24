@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const Asana = mongoose.model("Asana", {
- 
+const mongoose = require("mongoose")
+const asanaSchema = mongoose.Schema(
+{
   photo: {
     type: String,
     unique: true,
@@ -18,7 +18,14 @@ const Asana = mongoose.model("Asana", {
     type: String,
     unique: true,
   },
+  })
 
-});
+const Asana = mongoose.model("Asana", asanaSchema)
+asanaSchema.virtual('sequences', {
+  ref: 'Sequence',
+  localField: '_id',
+  foreignField: 'asanas'
+})
+
 
 module.exports = Asana;

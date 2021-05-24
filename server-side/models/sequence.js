@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const  Sequence = mongoose.model("Sequence", {
+const mongoose = require("mongoose")
+const sequenceSchema = {
   name: {
     type: String,
     required: true,
@@ -9,21 +9,26 @@ const  Sequence = mongoose.model("Sequence", {
     type: String,
     unique: false,
   },
-  // asanas: {
-  //     type: Array,
-  //     require: true,
-  //     validate(value) {
-  //         if (value.length < 5) {
-  //             throw new Error ("Must contain at least five asanas");
-  //         }
-  //     },
-  // },
+//   asanas: [{
+//     asana: {
+//         type: mongoose.Schema.Types.ObjectId,
+//         required: true,
+//         ref: 'Asana'
+//     }
+// }],
+
+asanas:[ {
+  type: mongoose.Schema.Types.ObjectId,
+  required: true,
+  ref: 'Asana'
+  }
+],
   date: {
     type: Date,
-    unique: false,
-    require: true,
-    default: Date.now,
+    default: Date.now
   },
-});
+}
+
+const  Sequence = mongoose.model("Sequence", sequenceSchema)
 
 module.exports = Sequence;
