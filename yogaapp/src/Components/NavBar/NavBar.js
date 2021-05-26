@@ -8,7 +8,7 @@ const NavBar = () => {
         <li>
           <Link to="/" className="active">
             <i className="fas fa-home icon"></i>
-            Your Sequences
+            Home
           </Link>
         </li>
         <li>
@@ -17,7 +17,7 @@ const NavBar = () => {
             Build a New Sequence
           </Link>
         </li>
-        <li>
+        <li id= "about">
           <Link to = "/about">
             <i className ="fas fa-info icon"></i>
             About
