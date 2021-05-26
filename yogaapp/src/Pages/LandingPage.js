@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 const LandingPage = () => {
   
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md">
 
     <h1>Your Sequences</h1>
       <br/>

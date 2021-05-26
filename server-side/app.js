@@ -4,15 +4,16 @@ const app = express();
 const cors = require("cors");
 const route = require("./routes/index.routes.js");
 require("./db/mongoose");
-const user = require ("./user.json");
+
 
 // const publicDirectoryPath = path.join(__dirname, "client/build");
 // app.use(express.static(publicDirectoryPath));
 app.use(cors());
 app.use(express.json());
-app.get("/api/test", (req, res)=> {
-  res.send(user)
-})
+// app.get("/api/test", (req, res)=> {
+//   res.send(user)
+// })
+
 //all of the true routes
 app.use("/api/", route);
 
