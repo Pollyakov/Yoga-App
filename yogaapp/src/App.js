@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import axios from "axios";
 import default_img from "../src/Components/Gallery/Gallery";
 import AsanaInfo from "./Components/AsanaInfo/AsanaInfo";
@@ -13,6 +13,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   const [data, setData] = useState([]);
+  // useEffect (()=> {
+  //   const fetchData = async()=> {
+  //     const data = await axios.get("http://localhost:5000/api/test"
+  //     );
+  //     console.log(data);
+  //   };
+  //   fetchData();
+
+  // }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,14 +75,12 @@ function App() {
         <NavBar />
         <Switch>
           <Route path="/" exact component={LandingPage} />
-          {/* <Route exact path="/asanas" component={Gallery} /> */}
           <Route
                 exact path="/asanas"
                 render={(props) => (
                   <Gallery {...props} dataFromState = {data}  />
                   )}
             />
-          {/* <Route exact path="/asanas/:id" component={Asana} /> */}
           <Route
                  exact path="/asanas/:id" 
                  render={(props) => (
