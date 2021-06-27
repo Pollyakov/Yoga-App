@@ -1,10 +1,11 @@
-.container {
-    border: solid 1px black;
+.asana_container {
+    border: solid 1px brown;
     border-radius: 4px;
     height: max-content;
     width: 350px; 
     margin: 7px;
     padding: 10px;
+    background-color: whitesmoke;
 }
  
 .info {
@@ -25,7 +26,8 @@
     text-align: left;
     line-height: 14px;
      margin: 5px;
-    font-weight: 500;
+    font-weight: 400;
+    
 }
 .level {
     font-weight: 400;
@@ -33,10 +35,18 @@
 .descr {
     margin-left: 5px;
     font: 10px;
+    padding: 5px;
+    border-radius: 4px;
 } 
 [type="checkbox"]
 {
     vertical-align:middle;
+    margin-left: 0.5em;
+    width: 2em;
+    height:2em;
+}
+[type="checkbox"]:hover{
+    background-color: burlywood;
 }
 .secondary-label {
     margin-left: 50px;  

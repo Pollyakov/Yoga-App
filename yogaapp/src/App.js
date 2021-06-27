@@ -6,7 +6,7 @@ import AsanaInfo from "./Components/AsanaInfo/AsanaInfo";
 import poses from "./Components/poses";
 import Gallery from "./Components/Gallery/Gallery";
 import LandingPage from "./Pages/LandingPage";
-import NotFound from "./Pages/NotFound";
+import NotFound from "./Pages/NotFound.jsx";
 import NavBar from "./Components/NavBar/NavBar";
 import About from "./Components/About/About";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -81,14 +81,19 @@ function App() {
                   <Gallery {...props} dataFromState = {data}  />
                   )}
             />
-          <Route
+          {/* <Route
                  exact path="/asanas/:id" 
                  render={(props) => (
                    <AsanaInfo {...props} id={props.id}  />
                  )}
+           /> */}
+
+            <Route
+                 exact path="/asanas/:eng_name" 
+                 component={AsanaInfo}
            />
           <Route path="/about" component={About} />
-          <Route component={NotFound} />
+          <Route component={NotFound} /> 
         </Switch>
       </Router>
     </div>

@@ -1,7 +1,17 @@
+
+/* .container{
+    background: url(../../assets/light-pattern.png);
+    width: 100%;
+    margin: auto;
+    
+    padding: 1.2em;
+    text-align: center;
+} */
+
 .gallery{
-   
     display: flex;
     align-items: center;
     align-content: center;
     flex-wrap: wrap;
+    width: 60%;
 }

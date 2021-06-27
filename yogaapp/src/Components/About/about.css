@@ -1,7 +1,41 @@
 #text {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
-#title {
-    padding-left: 40px;
+#about_container{
+    /* background: url(../../assets/light-pattern.png); */
+    width: 60%;
+    margin: auto;
+    height: 80vh;
+    margin: 1.2em 3em;
+    padding: 1.2em;
+    text-align: left;
+    border-radius: 8px;
+}
+
+.about_title{
+    padding-left: 6em;
+    color: brown;
+    text-align: left;
+    margin-bottom: 0.5em 3em;
+}
+
+#about_container > .about_card{
+    background: rgb(235, 235, 235);
+    font-size: 1.5em;
+    padding: 18px;
+    width: 60%;
+    margin: auto;
+    /* margin-left: 2em; */
+    border-radius: 8px;
+}
+
+.about_card button {
+    width: 20%;
+    height: 10%;
+    font-size: 1em;
+    padding: 8px;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 1em;
 }

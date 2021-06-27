@@ -9,5 +9,5 @@
 body{
   font-family: "Tenor Sans", Helvetica, Arial, Lucida, sans-serif;
   /* font-family: 'Roboto', sans-serif; */
-  background-color:  #f3ecdb;
+  background: url(../src/assets/light-pattern.png);
 }
