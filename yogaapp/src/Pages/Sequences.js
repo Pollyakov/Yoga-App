@@ -17,7 +17,6 @@ const columns = [
 
 
 export default function Sequences() {
-  //const [select, setSelection] = React.useState([]);
   const [data, setData] = useState([]);
   useEffect (()=> {
     const fetchData = async()=> {
@@ -39,12 +38,9 @@ export default function Sequences() {
   ];
 
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: "400px", width: "100%", marginTop: "20px"}}>
       <DataGrid rows={rows} columns={columns} pageSize={5}
        checkboxSelection
-    //    onSelectionChange={(newSelection) => {
-    //     setSelection(newSelection.rows);
-    // }}
         />
         <h1>selection</h1>
     </div>

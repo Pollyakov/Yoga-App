@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useState } from "react";
 import "./gallery.css";
 import Asana from "../Asana/Asana";
-import AsanaInfo from "../AsanaInfo/AsanaInfo";
 import poses from "../poses.js";
 
 const Gallery = (props) => {
-  
+//props = data from DB
+  const [favoriteAsanas, setFavoriteAsanas] = useState([])
+  const addFavoriteAsana = (str)=> setFavoriteAsanas([...favoriteAsanas, props.find(asana=>asana.id==str)])
+  console.log(favoriteAsanas);
+
+  //making an array of Asana Components from App.js props (fetched data), by passing them 
+  //to Asana component
   const renderedAsanot = props.dataFromState.map((asana) => {
     console.log(asana.id);
     return (
@@ -20,18 +24,20 @@ const Gallery = (props) => {
         difficulty={asana.difficulty}
         benefits={asana.benefits}
         id={asana.id}
-        
-        
+        addFavoriteAsana={addFavoriteAsana}
       />
     );
   });
 
-  return <div >
-     <h1>The Asanas matched your search: </h1>
-     <br/>
+  return <div className="wrapper" >
      <div className="gallery">
+     <h1 className="title">The Asanas matched your search:</h1>
     {renderedAsanot}
     </div>
+    <div className="placeholder">
+      {favoriteAsanas}
+    </div>
+
     </div>
 };
 

@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useEffect, useState} from "react";
 import axios from "axios";
 import default_img from "../src/Components/Gallery/Gallery";
-import AsanaInfo from "./Components/AsanaInfo/AsanaInfo";
+import AsanaFullInfo from "./Components/AsanaFullInfo/AsanaFullInfo";
 import poses from "./Components/poses";
 import Gallery from "./Components/Gallery/Gallery";
 import LandingPage from "./Pages/LandingPage";
@@ -10,6 +10,7 @@ import NotFound from "./Pages/NotFound.jsx";
 import NavBar from "./Components/NavBar/NavBar";
 import About from "./Components/About/About";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import background from '../public/background.png';
 
 function App() {
   const [data, setData] = useState([]);
@@ -29,9 +30,10 @@ function App() {
           `https://raw.githubusercontent.com/rebeccaestes/yoga_api/master/yoga_api.json`
         );
         const icons = data.data;
+        console.log(icons);
         //array without diacritics
         let posesNormalized = poses.map((pose, i) => {
-          return {
+          return ({
             sanskrit_name: pose.sanskrit_name
               .normalize("NFD")
               .replace(/[\u0300-\u036f]/g, ""),
@@ -40,7 +42,7 @@ function App() {
             difficulty: pose.difficulty,
             benefits: pose.benefits,
             id: i,
-          };
+          });
         });
         
         const findIcon = (index) => {
@@ -58,19 +60,19 @@ function App() {
         };
 
         const fullInfo = posesNormalized.map((pose, i) => {
-          return { ...pose, img_url: findIcon(i), id: i };
+          return ({ ...pose, img_url: findIcon(i), id: i });
         });
-        console.log(fullInfo);
         setData(fullInfo);
       }
     fetchData();
-    
   }, []);
 
 
 
   return (
-    <div>
+    <div style={{ 
+      backgroundImage: `url(/background.png)` 
+    }}>
       <Router>
         <NavBar />
         <Switch>
@@ -81,16 +83,9 @@ function App() {
                   <Gallery {...props} dataFromState = {data}  />
                   )}
             />
-          {/* <Route
-                 exact path="/asanas/:id" 
-                 render={(props) => (
-                   <AsanaInfo {...props} id={props.id}  />
-                 )}
-           /> */}
-
             <Route
-                 exact path="/asanas/:eng_name" 
-                 component={AsanaInfo}
+                 path="/asanas/:eng_name" 
+                 component={AsanaFullInfo}
            />
           <Route path="/about" component={About} />
           <Route component={NotFound} /> 

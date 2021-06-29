@@ -1,20 +1,4 @@
-body {
-  
-  margin: 0;
-  font-family:'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-};
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* Dark Salamon rgb(240,162,119)
-Antiqwhite rgb(243,236,219) */
-
-/* #f5f5f5 WhiteSmoke */
+/* body {
+  background: url('../src/assets/patterns.png');
+} */
 

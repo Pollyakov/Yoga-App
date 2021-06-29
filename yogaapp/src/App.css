@@ -1,6 +1,4 @@
-/* .App {
-  text-align: center;
-} */
+
 * {
   margin:0;
   padding: 0;
@@ -8,6 +6,7 @@
 }
 body{
   font-family: "Tenor Sans", Helvetica, Arial, Lucida, sans-serif;
-  /* font-family: 'Roboto', sans-serif; */
-  background: url(../src/assets/light-pattern.png);
+  /* background: url(../src/assets/light-pattern.png'); */
 }
+
+

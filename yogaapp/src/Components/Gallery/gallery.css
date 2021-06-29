@@ -1,17 +1,22 @@
 
-/* .container{
-    background: url(../../assets/light-pattern.png);
-    width: 100%;
-    margin: auto;
-    
-    padding: 1.2em;
-    text-align: center;
-} */
-
 .gallery{
     display: flex;
     align-items: center;
     align-content: center;
     flex-wrap: wrap;
     width: 60%;
+    padding: 1.5em;
+    float:left;
+}
+.gallery >h1 {
+    margin-bottom: 1em;
+}
+.placeholder{
+    width: 35%;
+    border: brown 2px solid;
+    height: 100vh;
+}
+
+.wrapper {
+    display: flex;
 }
